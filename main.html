@@ -1,16 +1,79 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Set Shapes</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <h1>Rectangle and Square Classes</h1>
+
+  <div>
+    <h2>Rectangle</h2>
+    <p id="rectangle-output"></p>
+  </div>
+
+  <div>
+    <h2>Square</h2>
+    <p id="square-output"></p>
+  </div>
+
+  <script>
+    // Rectangle class definition
+    class Rectangle {
+      constructor(width, height) {
+        this._width = width;
+        this._height = height;
+      }
+
+      // Getter for width
+      get width() {
+        return this._width;
+      }
+
+      // Getter for height
+      get height() {
+        return this._height;
+      }
+
+      // Method to calculate area
+      getArea() {
+        return this._width * this._height;
+      }
+    }
+
+    // Square class definition, extends Rectangle
+    class Square extends Rectangle {
+      constructor(side) {
+        // Call parent constructor with side as both width and height
+        super(side, side);
+      }
+
+      // Method to calculate perimeter
+      getPerimeter() {
+        return 4 * this._width;
+      }
+    }
+
+    // Create instances of Rectangle and Square
+    const rectangle = new Rectangle(5, 10);
+    const square = new Square(7);
+
+    // Display output for Rectangle
+    document.getElementById('rectangle-output').innerHTML = `
+      Width: ${rectangle.width}<br>
+      Height: ${rectangle.height}<br>
+      Area: ${rectangle.getArea()}
+    `;
+
+    // Display output for Square
+    document.getElementById('square-output').innerHTML = `
+      Side: ${square.width}<br>
+      Area: ${square.getArea()}<br>
+      Perimeter: ${square.getPerimeter()}
+    `;
+  </script>
 
 </body>
-
 </html>
