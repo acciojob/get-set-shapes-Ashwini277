@@ -56,6 +56,10 @@
       }
     }
 
+    // Expose classes to the global scope
+    window.Rectangle = Rectangle;
+    window.Square = Square;
+
     // Create instances of Rectangle and Square
     const rectangle = new Rectangle(5, 10);
     const square = new Square(7);
